@@ -20,6 +20,7 @@
 - (IBAction)segmentTemperature:(UISegmentedControl *)sender {
     _segmentSelect = sender.selectedSegmentIndex;
     _lblTempertura.text =(_segmentSelect==0)?@"°C":@"°F";
+    _lblResultado.text= [Calculos calcular:_segmentSelect :[_txtTemperatra.text floatValue]];
 }
 
 - (IBAction)btnCalclar:(UIButton *)sender {
@@ -30,7 +31,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     _segmentSelect=0;
-    _lblTempertura.text=@"°F";
+    _lblTempertura.text=@"°C";
     _txtTemperatra.text=@"0";
     _lblResultado.text= [Calculos calcular:_segmentSelect :[_txtTemperatra.text floatValue]];
 }
